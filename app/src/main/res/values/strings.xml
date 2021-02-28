@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">PMS_lab1</string>
+    <string name="title_home">Студент</string>
+    <string name="title_dashboard">Вкладка1</string>
+    <string name="title_notifications">Вкладка2</string>
+    <string name="name_group_home">Павловець Олександр Група ІО-81 ЗК ІО-8120</string>
+</resources>
