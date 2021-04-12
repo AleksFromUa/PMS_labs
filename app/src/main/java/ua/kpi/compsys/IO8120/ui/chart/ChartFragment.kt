@@ -15,7 +15,6 @@ import com.intrusoft.scatter.ChartData
 import com.intrusoft.scatter.PieChart
 import kotlin.math.E
 import kotlin.math.log
-import kotlin.math.pow
 
 class ChartFragment : Fragment() {
 
