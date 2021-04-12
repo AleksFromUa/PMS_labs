@@ -12,10 +12,10 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="ua.kpi.compsys.IO8120.ui.dashboard.DashboardFragment"
+        android:id="@+id/navigation_chart"
+        android:name="ua.kpi.compsys.IO8120.ui.chart.ChartFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_chart" />
 
     <fragment
         android:id="@+id/navigation_notifications"

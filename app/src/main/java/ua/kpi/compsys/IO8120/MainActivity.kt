@@ -1,12 +1,15 @@
 package ua.kpi.compsys.IO8120
 
 import android.os.Bundle
+import android.view.View
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.intrusoft.scatter.PieChart
+import com.jjoe64.graphview.GraphView
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,11 +19,25 @@ class MainActivity : AppCompatActivity() {
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
         val navController = findNavController(R.id.nav_host_fragment)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        val appBarConfiguration = AppBarConfiguration(setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications))
+        val appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.navigation_home, R.id.navigation_chart, R.id.navigation_notifications
+            )
+        )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+    }
+
+    fun onChangeChartClick(view: View) {
+        val graph = findViewById<GraphView>(R.id.graph)
+        val pieChart = findViewById<PieChart>(R.id.pie_chart)
+
+        if (graph.visibility == View.GONE) {
+            graph.visibility = View.VISIBLE
+            pieChart.visibility = View.GONE
+        } else {
+            graph.visibility = View.GONE
+            pieChart.visibility = View.VISIBLE
+        }
     }
 }
