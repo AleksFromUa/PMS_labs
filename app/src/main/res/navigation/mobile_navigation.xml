@@ -14,12 +14,12 @@
     <fragment
         android:id="@+id/navigation_chart"
         android:name="ua.kpi.compsys.IO8120.ui.chart.ChartFragment"
-        android:label="@string/title_dashboard"
+        android:label="@string/title_chart"
         tools:layout="@layout/fragment_chart" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="ua.kpi.compsys.IO8120.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:name="ua.kpi.compsys.IO8120.ui.film.FilmFragment"
+        android:label="@string/title_film"
+        tools:layout="@layout/fragment_film_list" />
 </navigation>
