@@ -1,2 +1,2 @@
 # PMS_labs
-Programming mobile systems labs repo
+Repo for programming mobile systems labs
