@@ -18,5 +18,9 @@ class Search {
 
     @JsonProperty("Poster")
     var poster: String? = null
+
+    override fun toString(): String {
+        return "$title"
+    }
 }
 
