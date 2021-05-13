@@ -8,7 +8,7 @@ android {
     buildToolsVersion "30.0.2"
 
     defaultConfig {
-        applicationId "Maksym.Dudka.uakpicomsysio_8106"
+        applicationId "ua.kpi.compsys.IO8120"
         minSdkVersion 24
         targetSdkVersion 30
         versionCode 1
