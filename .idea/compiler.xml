@@ -2,7 +2,7 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="11">
-      <module name="croconut.app" target="11" />
+      <module name="application.app" target="11" />
       <module name="croconut.core-ui" target="11" />
       <module name="croconut.feature-films" target="11" />
       <module name="croconut.feature-gallery" target="11" />

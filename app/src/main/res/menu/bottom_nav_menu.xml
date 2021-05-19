@@ -7,7 +7,7 @@
         android:title="@string/student_info"
         app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/second_screen"
+        android:id="@+id/chart"
         android:icon="@android:drawable/ic_dialog_dialer"
         android:title="@string/second_screen"
         app:showAsAction="ifRoom" />

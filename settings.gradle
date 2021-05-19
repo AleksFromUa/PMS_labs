@@ -2,4 +2,4 @@ include ':feature-gallery'
 include ':core-ui'
 include ':feature-films'
 include ':app'
-rootProject.name = "application"
+rootProject.name = "PMS_labs"
