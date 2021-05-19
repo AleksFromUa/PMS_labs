@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/navigation_home"
+        android:id="@+id/student_info"
         android:icon="@android:drawable/btn_star_big_on"
-        android:title="@string/title_home" />
-
+        android:title="@string/student_info"
+        app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/navigation_chart"
+        android:id="@+id/second_screen"
         android:icon="@android:drawable/ic_dialog_dialer"
-        android:title="@string/title_chart" />
-
+        android:title="@string/second_screen"
+        app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/navigation_notifications"
-        android:icon="@drawable/list_black"
-        android:title="@string/title_film" />
-
+        android:id="@+id/films"
+        android:icon="@android:drawable/ic_menu_sort_by_size"
+        android:title="@string/films"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/gallery"
+        android:icon="@android:drawable/ic_menu_gallery"
+        android:title="@string/gallery"
+        app:showAsAction="ifRoom" />
 </menu>
