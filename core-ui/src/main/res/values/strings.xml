@@ -1,9 +1,0 @@
-<resources>
-    <string name="app_name">PMS_labs</string>
-    <string name="student_info">Студент</string>
-    <string name="second_screen">Графік</string>
-    <string name="student_info_desc">Павловець Олександр\nгрупа ІО-81\nЗК ІО-8120</string>
-    <string name="graph">Графік</string>
-    <string name="chart">Діаграма</string>
-    <string name="films">Фільми</string>
-</resources>
