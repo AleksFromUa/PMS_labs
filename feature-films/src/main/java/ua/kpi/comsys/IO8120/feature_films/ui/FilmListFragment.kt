@@ -3,11 +3,11 @@ package ua.kpi.comsys.IO8120.feature_films.ui
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
-import androidx.lifecycle.Observer
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -18,8 +18,8 @@ import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import ua.kpi.comsys.IO8120.core_ui.MainFragment
 import ua.kpi.comsys.IO8120.feature_films.core.domain.model.Film
+import ua.kpi.comsys.IO8120.feature_films.data.repository.repository
 import ua.kpi.comsys.IO8120.feature_films.databinding.FragmentFilmListBinding
-
 import ua.kpi.comsys.IO8120.feature_films.ui.recycler.FilmAdapter
 import java.lang.Exception
 
@@ -41,6 +41,11 @@ class FilmListFragment : MainFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        if (viewModel.repository == null) {
+            viewModel.repository = repository("7e9fe69e", requireActivity().applicationContext)
+        }
+
         val filmAdapter = FilmAdapter().apply {
             setOnFilmClickListener {
                 viewModel.loadedFilm.value = null
@@ -71,7 +76,13 @@ class FilmListFragment : MainFragment() {
             it.onSuccess { films ->
                 binding.noFilms.isVisible = false
                 binding.recycler.isVisible = true
-                filmAdapter.update(films)
+                if (films.isEmpty()) {
+                    binding.noFilms.isVisible = true
+                    binding.recycler.isVisible = false
+                    binding.noFilms.text = "Nothing to show"
+                } else {
+                    filmAdapter.update(films)
+                }
             }.onFailure { error ->
                 binding.noFilms.isVisible = true
                 binding.recycler.isVisible = false
@@ -99,13 +110,13 @@ class FilmListFragment : MainFragment() {
         })
     }
 
-private val filmObserver = Observer<Result<Film, Exception>> {
-    if (it == null) return@Observer
-    viewModel.loadedFilm.removeObservers(viewLifecycleOwner)
-    it.onSuccess { film ->
-        viewModel.state.postValue(FilmViewModel.State.ShowFilm(film))
-    }.onFailure { error ->
-        shortToast(error.message ?: "Film loading failed")
+    private val filmObserver = Observer<Result<Film, Exception>> {
+        if (it == null) return@Observer
+        viewModel.loadedFilm.removeObservers(viewLifecycleOwner)
+        it.onSuccess { film ->
+            viewModel.state.postValue(FilmViewModel.State.ShowFilm(film))
+        }.onFailure { error ->
+            shortToast(error.message ?: "Film loading failed")
+        }
     }
-}
 }

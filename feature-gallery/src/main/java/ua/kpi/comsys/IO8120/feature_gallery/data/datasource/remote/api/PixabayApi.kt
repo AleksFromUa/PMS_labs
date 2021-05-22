@@ -4,7 +4,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 import ua.kpi.comsys.IO8120.feature_gallery.core.domain.model.ImageCollection
 
-interface PixabayApi {
+internal interface PixabayApi {
     @GET("/api/")
     suspend fun getImages(
         @Query("q") query: String,

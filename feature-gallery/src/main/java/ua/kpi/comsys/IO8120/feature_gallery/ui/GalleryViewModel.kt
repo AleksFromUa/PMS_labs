@@ -6,13 +6,13 @@ import androidx.lifecycle.viewModelScope
 import com.github.michaelbull.result.Result
 import com.squareup.picasso.Picasso
 import kotlinx.coroutines.launch
-import ua.kpi.comsys.IO8120.feature_gallery.core.datasource.ImagesDataSource
+
 import ua.kpi.comsys.IO8120.feature_gallery.core.domain.model.ImageCollection
-import ua.kpi.comsys.IO8120.feature_gallery.data.datasource.remote.ImagesRemoteDataSource
+import ua.kpi.comsys.IO8120.feature_gallery.core.domain.repository.ImageRepository
 
 internal class GalleryViewModel : ViewModel() {
-    private val ds: ImagesDataSource = ImagesRemoteDataSource("19193969-87191e5db266905fe8936d565")
-    private val request = "small+animals"
+    var repository: ImageRepository? = null
+    private val request = "small+animal"
     private val count = 18
 
     val photos = MutableLiveData<Result<ImageCollection, Exception>>()
@@ -25,7 +25,7 @@ internal class GalleryViewModel : ViewModel() {
         loading.value = true
 
         viewModelScope.launch {
-            photos.postValue(ds.getImages(request, count))
+            photos.postValue(repository?.getImages(request, count))
             loading.postValue(false)
         }
     }
