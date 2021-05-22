@@ -12,7 +12,7 @@ import java.io.FileNotFoundException
 import java.io.IOException
 import java.nio.charset.Charset
 
-internal class FilmsAssetsDataSource(
+/*internal class FilmsAssetsDataSource(
     private val assetManager: AssetManager,
     private val fileName: String = FILMS_FILE
 ) : FilmDataSource {
@@ -63,4 +63,4 @@ internal class FilmsAssetsDataSource(
     companion object {
         private const val FILMS_FILE = "MoviesList.txt"
     }
-}
+}*/
