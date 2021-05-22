@@ -16,9 +16,9 @@ internal class FilmLocalDataSource(
 
     override suspend fun getFilms(request: String): Result<List<Film>, Exception> = query {
         dao.getAllFilms().map(FilmEntity::toFilm).let { films ->
-            val startsWith = films.filter { it.title.startsWith(request) }
+            val startsWith = films.filter { it.title.startsWith(request, true) }
             val onlyContains = films.filter {
-                !it.title.startsWith(request) && it.title.contains(request)
+                !it.title.startsWith(request, true) && it.title.contains(request, true)
             }
 
             startsWith + onlyContains
